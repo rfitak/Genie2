@@ -1,0 +1,204 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Genie</title>
+  
+  <meta property="og:site_name" content="Cartwrig.ht" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Genie" />
+  <meta property="og:url" content="//cartwrig.ht/apps/genie/" />
+  <meta property="og:image" content="//cartwrig.ht/media/people/reed.jpg" />
+  <meta property="article:author" content="http://cartwrig.ht/" />
+
+
+  <link rel="stylesheet" type='text/css' href="/css/normalize.css" />
+  <link rel="stylesheet" type='text/css' href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,400italic,700italic|Source+Code+Pro:400,700" />
+  <link rel="stylesheet" type='text/css' href="/css/texgyreadventor.css" />
+  <link rel="stylesheet" type='text/css' href="/css/gridism.css" />
+  <link rel="stylesheet" type='text/css' href="/css/style.css" />
+  <link rel="stylesheet" type='text/css' href="/css/pygments.css" />
+  <link rel="icon" type="image/x-icon" href="/favicon.png" />
+  <link rel="stylesheet" type='text/css' href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.min.css" />
+  <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="/js/local.js"></script>
+  <script src="https://use.fontawesome.com/e6a24c6dde.js"></script>
+  <script src="jquery.ui.touch-punch.min.js"></script>
+
+  <script src="js/jquery.flot.js"></script>
+  <script src="js/jquery.flot.axislabels.js"></script>
+  <script src="js/jquery.flot.navigate.js"></script>
+  <script src="js/jquery.flot.resize.js"></script>
+
+  <link rel="stylesheet" type='text/css' href="genie.css">
+  <script src="genie.js"></script>
+  <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="excanvas.min.js"></script><![endif]-->
+  <style>
+  .wrap section.genie .grid {
+      max-width: 1400px;
+  }
+  </style>
+
+</head>
+
+
+<body class="wrap">
+  <header class="topbar">
+  <div class="grid">
+    <div class="unit one-third center-on-mobiles">
+      <h1><a href="/">Reed A. Cartwrig.ht</a></h1>
+    </div>
+    <nav class="main-nav unit two-thirds align-right center-on-mobiles">
+      <ul>
+  <li class=""><a href="/lab/">Research</a></li>
+  <li class=""><a href="/courses/">Teaching</a></li>
+  <li class=""><a href="/people/">People</a></li>
+  <li class=""><a href="/blogs/">Blogs</a></li>
+  <li class=""><a href="/software/">Software</a></li>
+  <li><a href="http://ra.cartwrig.ht/cv/ReedCartwrightCV.pdf" target="newtab">CV</a></li>
+</ul>
+
+
+    </nav>
+  </div>
+</header>
+
+<header class="title">
+  <div class="grid">
+    <div class="unit whole">
+      <h1>
+        <a href="/apps/genie/">
+        
+          Genie
+        
+        </a>
+      </h1>
+    </div>
+  </div>
+</header>
+
+
+
+  <section class="genie">
+	<div class="grid item item-first">
+		<div class="unit whole align-center">
+			<div id="genieControls">
+				<label>Mutation&nbsp;Rate:&nbsp;<input  id="genieMutationRate" value="0" type="number" max="1" min="0" step="0.00001"/></label>			
+				<span class="keep-together">
+					<button id="genieStart" type="button">Start</button>
+					<button id="genieReset" type="button">Reset</button>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="grid item item-not-last">
+		<div id="genieGrid" class="unit half">
+			<div class="grid-table">
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+				<div class="show-cell"></div>
+			</div>
+		</div>
+		<div class="unit half">
+			<div class="row">
+				<h4 style="text-align:center;">Number of Alleles for Each Generation</h4>
+				<div id="numAllelesPlot"></div>
+			</div>
+			<div class="row">
+				<h4 style="text-align:center;">Allele Frequency for Each Generation</h4>
+				<div id="alleleFrequencyPlot"></div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="genieHelp">
+	<div class="grid item item-first">
+		<div class="unit whole">
+
+<h2>About the simulation</h2>
+
+<p>This simulation is designed to demonstrate genetic drift and gene flow in a finite population. Each cell in the grid represents an individual in the population, and its color represents a unique allele. As the simulations runs, you can obverse the allele frequencies in the population shifting as the colors of individual cells change over time.</p>
+
+<h2>Running the simulation</h2>
+
+<h3>Controls</h3>
+<ul>
+<li>To begin the simulation, press “Start”</li>
+<li>The stop the simulation, press “Pause”</li>
+<li>To randomly generate a new initial population and begin the simulation again, press “Reset”</li>
+<li>You can also edit the mutation rate used during the simulation.</li>
+<li>To create a barrier on the grid, simply click on the cell in which you want to barrier to appear.</li>
+<li>To remove a barrier, simply click on the cell again. To learn more about barriers, see “Barriers” below</li>
+<li>To force a mutation to occur on a cell, click on the cell while holding the SHIFT key. To learn more about mutations, see “Mutations” below</li>
+</ul>
+
+<h3>Barriers</h3>
+
+<p>In this simulation, barriers represent physical landmarks on which individual can’t live. Cells that are marked as barriers will not be copied into neighboring cells, and neighboring cells cannot be copied onto barriers. Therefore, constructing a line of barriers would create a physical line across which cells cannot be copied. Barriers may then be used to force speciation to occur by isolating sub-populations.</p>
+
+<ul>
+<li>You can create a barrier by clicking on any cell.</li>
+<li>You can click and drag to create a barrier in many cells.</li>
+</ul>
+
+<h3>Mutations</h3>
+
+<ul>
+<li>You can adjust the mutation rate used by simulation.</li>
+<li>The mutation rate should be realistically low. If the mutation rate is too high, you will see many colors on the grid being repeated for distinct alleles.</li>
+<li>Bright neon colors are reserved for cells with mutant alleles.</li>
+<li>You can force a mutation to occur on a cell by clicking on the cell while holding the SHIFT key. If you click and drag, you can force the same mutation to occur in many cells.</li>
+</ul>
+	</div>
+	</div>
+</section>
+
+
+  <footer>
+  <div class="grid">
+    <div class="unit whole">
+      <p>Copyright &copy; Reed A. Cartwright &mdash; All Rights Reserved
+    </div>
+  </div>
+</footer>
+
+<div class="clear"></div>
+
+  
+
+</body>
+
+</html>
+
+
