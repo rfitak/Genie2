@@ -28,7 +28,7 @@ var JavaRandom = function(seed) {
 };
 
 // Default RNG (time-based seed)
-var rng = JavaRandom(Date.now()); // default: time-based seed
+//var rng = JavaRandom(Date.now()); // default: time-based seed
 
 // Public seed setter
 //function setRandomSeed(seed) {
