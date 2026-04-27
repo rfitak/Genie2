@@ -2,6 +2,47 @@
 // Copyright 2016 Reed A. Cartwright <reed@cartwrig.ht>
 
 var cells = [];
+/* ============================================================
+   Java-compatible Random (matches java.util.Random exactly)
+   ============================================================ */
+var JavaRandom = function(seed) {
+	const multiplier = 0x5DEECE66Dn;
+	const addend = 0xBn;
+	const mask = (1n << 48n) - 1n;
+
+	let state = (BigInt(seed) ^ multiplier) & mask;
+
+	function next(bits) {
+		state = (state * multiplier + addend) & mask;
+		return Number(state >> (48n - BigInt(bits)));
+	}
+
+	return {
+		nextDouble: function () {
+			return ((next(26) << 27) + next(27)) / (1 << 53);
+		},
+		nextInt: function (bound) {
+			return Math.floor(this.nextDouble() * bound);
+		}
+	};
+};
+
+// Default RNG (time-based seed)
+var rng = JavaRandom(Date.now()); // default: time-based seed
+
+// Public seed setter
+//function setRandomSeed(seed) {
+//	rng = JavaRandom(seed);
+//	console.log("Random seed set to:", seed);
+//}
+
+function setRandomSeed(seed) {
+    currentSeed = Number(seed);
+    rng = JavaRandom(currentSeed);
+
+    $("#genieSeed").val(currentSeed); // keep UI synced
+    console.log("Random seed set to:", currentSeed);
+}
 
 ;(function($) {
 
