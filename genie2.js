@@ -72,7 +72,7 @@ var Grid = function() {
 	var numBarriers = 0;
 	var isRunning = false;
 
-	var theta = 2048*0.001; // initial theta
+	var theta = 2048 * 0.001; // initial theta
 
 	var update_cell = function(cell_num, allele) {
 		if(allele !== undefined) {
@@ -83,7 +83,7 @@ var Grid = function() {
 	}
 
 	var getRandomAllele = function() {
-		return rng.nextInt(colors.length*1000);
+		return rng.nextInt(colors.length * 1000);
 	}
 
 	var step = function(mutationRate) {
