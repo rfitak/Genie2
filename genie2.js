@@ -253,6 +253,19 @@ var Grid = function() {
 		$("#numAlleles").html("Number of alleles: " + numAlleles);
 	};
 
+	var handleSeedButton = function () {
+    	$("#genieSetSeed").button().click(function () {
+        	const seedVal = $("#genieSeed").val();
+
+        	if (seedVal === "" || !Number.isInteger(Number(seedVal))) {
+            	alert("Please enter a valid integer seed");
+            	return;
+        	}
+
+        	setRandomSeed(Number(seedVal));
+		});
+	};
+
 	var handleStartButton = function() {
 		$("#genieStart").button({label: "Start", icon: "fa fa-play"}).click(function() {
 			if (!isRunning) {
