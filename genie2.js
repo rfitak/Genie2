@@ -42,7 +42,7 @@ function setRandomSeed(seed) {
     currentSeed = Number(seed);
     rng = JavaRandom(currentSeed);
 
-    $("#genieSeed").val(currentSeed); // ✅ keep UI synced
+    $("#genieSeed").val(currentSeed); // keep UI synced
     console.log("Random seed set to:", currentSeed);
 }
 
