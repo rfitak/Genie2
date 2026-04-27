@@ -41,15 +41,7 @@ function setRandomSeed(seed) {
 ;(function($) {
 
 $(document).ready(function() {
-	Grid.init($("#setSeed").click(function () {
-    var seed = $("#genieSeed").val();
-    if (seed === "" || isNaN(seed)) {
-        alert("Please enter a valid integer seed");
-    } else {
-        setRandomSeed(parseInt(seed, 10));
-    }
-});
-);
+	Grid.init();
 	NumAllelesPlot.initPlot();
 	AlleleFrequencyPlot.initPlot();
 });
