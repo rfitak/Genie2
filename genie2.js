@@ -33,10 +33,19 @@ var JavaRandom = function(seed) {
 var rng = JavaRandom(Date.now()); // default: time-based seed
 
 // Public seed setter
+//function setRandomSeed(seed) {
+//	rng = JavaRandom(seed);
+//	console.log("Random seed set to:", seed);
+//}
+
 function setRandomSeed(seed) {
-	rng = JavaRandom(seed);
-	console.log("Random seed set to:", seed);
+    currentSeed = Number(seed);
+    rng = JavaRandom(currentSeed);
+
+    $("#genieSeed").val(currentSeed); // ✅ keep UI synced
+    console.log("Random seed set to:", currentSeed);
 }
+
 
 ;(function($) {
 
