@@ -456,6 +456,7 @@ var Grid = function() {
 		//createExportLink();
 		handleStartButton();
 		handleResetButton();
+		handleSeedButton();
 		handleBarrier();
 		handleBarrierTemplate();
 		handleForcedMutation();
